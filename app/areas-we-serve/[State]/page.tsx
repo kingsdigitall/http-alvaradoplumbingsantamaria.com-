@@ -37,7 +37,7 @@ export function generateMetadata({ params }: SubdomainPageProps) {
     title: ContentData?.metaTitle,
     description: ContentData?.metaDescription,
     alternates: {
-      canonical: `https://${State}.${ContactInfo.host}`,
+      canonical: `https://${ContactInfo.host}/areas-we-serve/${State}`,
     },
   };
 }
