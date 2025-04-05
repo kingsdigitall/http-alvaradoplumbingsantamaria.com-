@@ -34,10 +34,10 @@ const page = () => {
           <div className="mt-10 px-4 md:px-20">
             <div className="mt-10 gap-6 md:flex">
               <Image
-                src={`/${contentData.h2Image}`}
+                src={`${contentData.h2Image}`}
                 width={500}
                 height={400}
-                alt={contentData.h2Image.split(".")[0]}
+                alt={contentData.h2Image.split("/").pop()?.split(".")[0] || "image"}
                 className="object-cover"
               />
               <div className="flex flex-col items-center justify-center">
@@ -96,9 +96,9 @@ const page = () => {
           </div>
           <div>
             <Image
-              src={`/${contentData.h3Image}`}
+              src={`${contentData.h3Image}`}
               className="h-[350px] w-full rounded-lg border object-cover shadow-lg"
-              alt={contentData.h3Image.split(".")[0]}
+              alt={contentData.h3Image.split("/").pop()?.split(".")[0] || "image"}
               width={1000}
               height={500}
             />
