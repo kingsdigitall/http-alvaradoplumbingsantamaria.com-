@@ -36,8 +36,92 @@ const page = ({ params }: { params: { services: string } }) => {
   const subdomain = headersList.get("x-subdomain");
   const Data: any = content[subdomain as keyof typeof content];
   const locationName = Data?.name || "Santa Maria, CA";
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": `${ContactInfo.name}`,
+      "image": {
+        "@type": "ImageObject",
+        "url": `${ContactInfo.logo}` || "",
+      },
+      "telephone": `${ContactInfo.No}`,
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        streetAddress: ContactInfo.address.split(",")[0].trim(),
+        addressLocality: ContactInfo.location.split(",")[0].trim(),
+        addressRegion: ContactInfo.location.split(",")[1].trim(),
+        postalCode: ContactInfo.zipCode.trim(),
+      addressCountry: "United States",
+      },
+      "url": `${ContactInfo.baseUrl}`,
+      "areaServed": {
+        "@type": "City",
+        "name": ContactInfo.location.split(",")[0].trim(),
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": ContactInfo.location.split(",")[0].trim(),
+          "addressRegion": ContactInfo.location.split(",")[1].trim(),
+          "addressCountry": "United States"
+        }
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": 4.3,
+        "bestRating": "5",
+        "worstRating": "1",
+        "reviewCount": 44
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": `${serviceData.title.split("in [location]").join(" ")}`,
+      "description": `${serviceData.description.split("[location]").join(locationName)}`,
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": `${ContactInfo.name}`,
+        "image": {
+          "@type": "ImageObject",
+          "url": `${ContactInfo.logo}` || ""
+        },
+        "telephone": `${ContactInfo.No}`,
+        "address": {
+          "@type": "PostalAddress",
+          streetAddress: ContactInfo.address.split(",")[0].trim(),
+        addressLocality: ContactInfo.location.split(",")[0].trim(),
+        addressRegion: ContactInfo.location.split(",")[1].trim(),
+        postalCode: ContactInfo.zipCode.trim(),
+        addressCountry: "United States",
+        }
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": ContactInfo.location.split(",")[0].trim(),
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": ContactInfo.location.split(",")[0].trim(),
+          "addressRegion": ContactInfo.location.split(",")[1].trim(),
+          "addressCountry": "United States"
+        }
+      },
+      "serviceType": serviceData.title.split("in [location]").join(" "),
+      "url": `${ContactInfo.baseUrl}services/${params.services}`,
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": `${serviceData.title.split("in [location]").join(" ")} Catalog`,
+      }
+    }
+  ]
   return (
     <div className="">
+      <section>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </section>
       <Banner
         h1={serviceData.title.split("[location]").join(locationName)}
         image={"banner.jpg"}

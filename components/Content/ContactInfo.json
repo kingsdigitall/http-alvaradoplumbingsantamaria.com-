@@ -5,5 +5,10 @@
     "baseUrl": "https://alvaradoplumbingsantamaria.com/",
     "host": "alvaradoplumbingsantamaria.com",
     "name": "Santa Maria Plumbing Expert",
-    "address": "2165 W Main St, Santa Maria, CA 93458, United States"
+    "address": "2165 W Main St, Santa Maria, CA 93458, United States",
+    "service": "Plumbing Services",
+    "location": "Santa Maria, CA",
+    "zipCode": "93458",
+    "bannerImage": "https://ik.imagekit.io/serviceproviders/AlvaradoPlumbingSantamaria.com/banner.jpg?updatedAt=1743839786731",
+    "logo": "https://ik.imagekit.io/serviceproviders/AlvaradoPlumbingSantamaria.com/logo.png?updatedAt=1743839642959"
 }
