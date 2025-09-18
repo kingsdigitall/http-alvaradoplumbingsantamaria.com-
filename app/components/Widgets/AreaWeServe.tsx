@@ -5,7 +5,7 @@ import ContactInfo from "@/components/Content/ContactInfo.json";
 
 const AreaWeServe = ({ slugs }: any) => {
   const [showAll, setShowAll] = useState(false);
-  const initialCount = 15;
+  const initialCount = 12;
 
   const handleReadMore = () => {
     setShowAll(true);
