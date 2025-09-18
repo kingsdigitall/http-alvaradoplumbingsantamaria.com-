@@ -32,15 +32,6 @@ const HourCta =() => {
               </div>
             </a>
           </div>
-          {/* <div className="mr-10 mt-4  flex   w-full items-center justify-center rounded-s-xl lg:mt-0 ">
-            <Image
-              src="/24service1.png"
-              alt="image"
-              width={10000}
-              height={10000}
-              className=" w-full object-cover md:h-[55vh]"
-            />
-          </div> */}
         </div>
       </div>
     </div>
