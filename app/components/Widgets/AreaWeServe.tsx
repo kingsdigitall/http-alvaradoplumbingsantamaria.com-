@@ -33,7 +33,7 @@ const AreaWeServe = ({ slugs }: any) => {
           );
         })}
       {!showAll && slugs.length > initialCount && (
-        <a href="/area-we-serve">
+        <a href="/areas-we-serve">
           <button className="mb-2 me-2 rounded-lg bg-minor px-5 py-2.5 text-xs font-medium text-white hover:bg-minor/90 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700">
             View All
           </button>
