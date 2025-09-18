@@ -5,7 +5,7 @@ import ContactInfo from "@/components/Content/ContactInfo.json";
 
 const AreaWeServe = ({ slugs }: any) => {
   const [showAll, setShowAll] = useState(false);
-  const initialCount = 30;
+  const initialCount = 12;
 
   const handleReadMore = () => {
     setShowAll(true);
@@ -24,9 +24,7 @@ const AreaWeServe = ({ slugs }: any) => {
           return (
             <div className="" key={index}>
               <a href={`/areas-we-serve/${City.slug}`} className="text-center">
-                <h3
-                  className="mb-2 me-2 rounded-lg bg-main px-5 py-2.5 text-xs font-medium text-white hover:bg-main/90 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
-                >
+                <h3 className="mb-2 me-2 rounded-lg bg-main px-5 py-2.5 text-xs font-medium text-white hover:bg-main/90 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700">
                   {City.name}{" "}
                   {City.zipCodes && ` ${City.zipCodes.split("|")[0]}`}
                 </h3>
@@ -35,12 +33,11 @@ const AreaWeServe = ({ slugs }: any) => {
           );
         })}
       {!showAll && slugs.length > initialCount && (
-        <button
-          onClick={handleReadMore}
-          className="mb-2 me-2 rounded-lg bg-minor px-5 py-2.5 text-xs font-medium text-white hover:bg-minor/90 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
-        >
-          View All
-        </button>
+        <a href="/area-we-serve">
+          <button className="mb-2 me-2 rounded-lg bg-minor px-5 py-2.5 text-xs font-medium text-white hover:bg-minor/90 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700">
+            View All
+          </button>
+        </a>
       )}
       {showAll && (
         <button
