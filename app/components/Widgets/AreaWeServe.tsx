@@ -1,7 +1,6 @@
 "use client";
-import { Link } from "lucide-react";
 import React, { useState } from "react";
-import ContactInfo from "@/components/Content/ContactInfo.json";
+import Link from "next/link";
 
 const AreaWeServe = ({ slugs }: any) => {
   const [showAll, setShowAll] = useState(false);
@@ -23,21 +22,26 @@ const AreaWeServe = ({ slugs }: any) => {
         .map((City: any, index: number) => {
           return (
             <div className="" key={index}>
-              <a href={`/areas-we-serve/${City.slug}`} className="text-center">
+              <Link
+                href={`/areas-we-serve/${City.slug}`}
+                className="text-center"
+              >
                 <h3 className="mb-2 me-2 rounded-lg bg-main px-5 py-2.5 text-xs font-medium text-white hover:bg-main/90 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700">
                   {City.name}{" "}
                   {City.zipCodes && ` ${City.zipCodes.split("|")[0]}`}
                 </h3>
-              </a>
+              </Link>
             </div>
           );
         })}
       {!showAll && slugs.length > initialCount && (
-        <a href="/areas-we-serve">
-          <button className="mb-2 me-2 rounded-lg bg-minor px-5 py-2.5 text-xs font-medium text-white hover:bg-minor/90 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700">
-            View All
-          </button>
-        </a>
+        <Link href="/areas-we-serve">
+        <button
+          className="mb-2 me-2 rounded-lg bg-minor px-5 py-2.5 text-xs font-medium text-white hover:bg-minor/90 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+        >
+          View All
+        </button>
+        </Link>
       )}
       {showAll && (
         <button

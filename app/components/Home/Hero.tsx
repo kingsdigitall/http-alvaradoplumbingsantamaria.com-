@@ -2,16 +2,20 @@ import Image from "next/image";
 import Banner from "./Banner";
 import WhyChoose from "./WhyChoose";
 import HourCta from "./HourCta";
-import homeData from "@/components/Content/home.json";
 import Faq from "./Faq";
 import Service from "@/app/components/Home/Service";
 import Affordable from "./Affordable";
 import ProcessWidget from "../Widgets/ProcessWidget";
 import AreaWeServe from "../Widgets/AreaWeServe";
-import content from "@/components/Content/subDomainUrlContent.json";
-import TypeOfDumpster from "../Widgets/TypeOfDumpster";
 import ReviewWidget from "../Widgets/ReviewWidget";
-import ContactInfo from "@/components/Content/ContactInfo.json";
+import Types from "../Widgets/Types";
+
+import contactContent from "@/app/Data/content";
+import SubdomainContent from "@/app/Data/FinalContent";
+
+const ContactInfo: any = contactContent.contactContent;
+const homeData: any = contactContent.homePageContent;
+const content: any = SubdomainContent.subdomainData;
 
 const Hero = () => {
   const cityData: any = content;
@@ -21,7 +25,7 @@ const Hero = () => {
     "@type": "LocalBusiness",
     name: `${ContactInfo.name}`,
     image:
-      `${ContactInfo.logo}` || "",
+      `${ContactInfo?.logoImage}` || "",
     "@id": `${ContactInfo.baseUrl}`,
     url: `${ContactInfo.baseUrl}`,
     telephone: `${ContactInfo.No}`,
@@ -110,6 +114,7 @@ const Hero = () => {
         </div>
         {/* Section 1 */}
         {/* TYPES */}
+        <Types />
         <Service />
         {/* TYPES*/}
         <Affordable />
@@ -137,7 +142,7 @@ const Hero = () => {
         <div className="mt-14 md:mt-20"></div>
         {/* CTA */}
         {/* FAQ */}
-        <Faq />
+        <Faq  data={homeData.faq}/>
         {/* FAQ */}
         {/* Review */}
         <ReviewWidget />

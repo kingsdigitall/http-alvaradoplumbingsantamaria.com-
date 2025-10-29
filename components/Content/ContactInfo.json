@@ -10,5 +10,9 @@
     "location": "Santa Maria, CA",
     "zipCode": "93458",
     "bannerImage": "https://ik.imagekit.io/serviceproviders/AlvaradoPlumbingSantamaria.com/banner.jpg?updatedAt=1743839786731",
-    "logo": "https://ik.imagekit.io/serviceproviders/AlvaradoPlumbingSantamaria.com/logo.png?updatedAt=1743839642959"
+    "logo": "https://ik.imagekit.io/serviceproviders/AlvaradoPlumbingSantamaria.com/logo.png?updatedAt=1743839642959",
+    "favicon": "",
+    "googleAnalytics": "",
+    "main": "#0193d2",
+    "minor": "#006f9f"
 }
